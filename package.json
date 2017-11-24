@@ -1,0 +1,24 @@
+{
+  "name": "samfeder",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "prodDeploy": "serverless deploy --stage production --region us-east-1",
+    "devDeploy": "serverless deploy --stage dev --region us-east-1 --aws-s3-accelerate"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "serverless-offline": "^3.16.0"
+  }
+}

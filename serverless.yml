@@ -1,0 +1,16 @@
+service: samfeder
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  profile: serverless
+  deploymentBucket: samfeder.co
+
+functions:
+  home:
+    handler: handler.home
+    events:
+      - http: GET home
+
+plugins:
+  - serverless-offline
