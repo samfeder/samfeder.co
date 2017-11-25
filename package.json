@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prodDeploy": "serverless deploy --stage production --region us-east-1",
-    "devDeploy": "serverless deploy --stage dev --region us-east-1 --aws-s3-accelerate"
+    "deploy": "serverless deploy --stage production --region us-east-1",
+    "debug": "node-debug sls offline",
+    "start": "AWS_PROFILE=serverless serverless offline start"
   },
   "dependencies": {
+    "aws-sdk": "^2.156.0",
+    "bluebird": "^3.5.1",
     "body-parser": "~1.18.2",
     "cheerio": "^1.0.0-rc.2",
     "cookie-parser": "~1.4.3",

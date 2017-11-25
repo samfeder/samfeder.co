@@ -16,6 +16,7 @@ function getUrl() {
   return rp(options)
     .then(link => link)
     .catch(err => {
+      console.log(`error: ${err}`)
       return null;
     });
 }
@@ -25,7 +26,7 @@ function parseBody($) {
   $('.last-seen').remove();
   $('.network-accounts').remove();
   $('.footer-notice').remove();
-  
+
   return $.html();
 }
 
