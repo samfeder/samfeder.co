@@ -2,6 +2,7 @@ const cheerio = require('cheerio');
 const rp = require('request-promise');
 
 const uri = 'https://stackoverflow.com/story/samfeder';
+const INSTA_LINK = 'https://www.instagram.com/sammy_feds';
 
 function getUrl() {
   const options = {
@@ -28,6 +29,9 @@ function parseBody($) {
   $('.footer-notice').remove();
 
   $('title').text('Sam Feder');
+  $('.user-technologies').find('label').text("")
+
+  $('.avatar').wrap(`<a href="${INSTA_LINK}"></a>`)
 
   addMeta($);
   return $.html();
