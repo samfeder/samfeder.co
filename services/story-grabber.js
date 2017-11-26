@@ -34,9 +34,14 @@ function parseBody($) {
 }
 
 function addMeta($) {
-  $('meta').remove();
-
   const description = $('.job.has-tooltip').text();
+
+  $('meta').remove();
+  $('link[rel="shortcut icon"]').remove();
+  $('link[rel="apple-touch-icon image_src"]').remove();
+
+  $('head').append('<link rel="shortcut icon" href="http://samfeder.co/favicon.png">');
+  $('head').append('<link rel="apple-touch-icon image_src" href="http://samfeder.co/favicon.png">');
 
   $('head').append('<meta name="twitter:card" content="summary">');
   $('head').append('<meta name="twitter:domain" content="samfeder.co">');
