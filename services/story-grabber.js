@@ -2,7 +2,7 @@ const cheerio = require('cheerio');
 const rp = require('request-promise');
 
 const uri = 'https://stackoverflow.com/story/samfeder';
-const INSTA_LINK = 'https://www.instagram.com/sammy_feds';
+const LINKEDIN_LINK = 'https://www.linkedin.com/in/samfeds/';
 
 function getUrl() {
   const options = {
@@ -31,7 +31,7 @@ function parseBody($) {
   $('title').text('Sam Feder');
   $('.user-technologies').find('label').text("")
 
-  $('.avatar').wrap(`<a href="${INSTA_LINK}"></a>`)
+  $('.avatar').wrap(`<a target="_blank" href="${LINKEDIN_LINK}"></a>`)
 
   addMeta($);
   return $.html();
@@ -46,6 +46,7 @@ function addMeta($) {
 
   $('head').append('<link rel="shortcut icon" href="http://samfeder.co/favicon.png">');
   $('head').append('<link rel="apple-touch-icon image_src" href="http://samfeder.co/favicon.png">');
+  $('head').append('<link rel="stylesheet" type="text/css" href="http://samfeder.co/style.css">');
 
   $('head').append('<meta name="twitter:card" content="summary">');
   $('head').append('<meta name="twitter:domain" content="samfeder.co">');
