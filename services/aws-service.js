@@ -1,11 +1,13 @@
 const AWS = require('aws-sdk');
+const credentials = new AWS.Credentials(process.env.AWS_KEY, process.env.AWS_SECRET);
+AWS.config.update({credentials, region:'us-east-1'});
 AWS.config.setPromisesDependency(require('bluebird'));
 
 const BUCKET_NAME = 'samfeder.co';
 const INDEX_NAME = 'index.html';
 
 function putObjectToS3(Bucket, Key, Body){
-  var s3 = new AWS.S3();
+  const s3 = new AWS.S3();
   const params = {
     Bucket, Key, Body, ContentType: 'text/html; charset=utf-8'
   }

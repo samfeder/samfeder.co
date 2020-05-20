@@ -2,9 +2,12 @@ service: samfeder
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs12.x
   profile: serverless
   deploymentBucket: samfeder.co
+  environment:
+    AWS_KEY: ${self:custom.secrets.AWS_KEY}
+    AWS_SECRET: ${self:custom.secrets.AWS_SECRET}
 
 functions:
   home:
@@ -12,5 +15,8 @@ functions:
     events:
       - http: GET home
 
+custom:
+  secrets: ${file(secrets.yml):${opt:stage, 'dev'}}
+      
 plugins:
   - serverless-offline

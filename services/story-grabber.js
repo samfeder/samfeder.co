@@ -13,7 +13,7 @@ function getUrl() {
       return parseBody($);
     }
   };
-
+  
   return rp(options)
     .then(link => link)
     .catch(err => {
